@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Vocabulary Builder" />
+    <meta name="author" content="" />
+    <title>
+      Vocabulary Builder based on: Verbal Advantage: 10 Steps to a Powerful
+      Vocabulary by by Charles Harrington Elster (Author)
+    </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Responsive navbar-->
+    <div id="app">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-lg-5">
+          <a class="navbar-brand" href="#!">Start Bootstrap</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <router-link class="nav-link" to="/">Home</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/license"
+                  >License</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/myData"
+                  >Where's my Data?</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/buyBook"
+                  >Buy the Books</router-link
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#!">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Header-->
+      <header class="py-5">
+        <div class="container px-lg-5">
+          <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+            <div class="m-4 m-lg-5">
+              <h1 class="display-5 fw-bold">Vocabulary Builder</h1>
+              <p class="fs-5">
+                Based on: Verbal Advantage: 10 Steps to a Powerful Vocabulary by
+                by Charles Harrington Elster (Author)
+              </p>
+              <p class="fs-5">
+                This app is meant to supplement the book and audio; this app is
+                NOT endorsed by the author and the app was created
+                independently.
+              </p>
+              
+            </div>
+          </div>
+          <div>
+            <router-view></router-view>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content-->
+    </div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+          Copyright &copy; Your Website 2022
+        </p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Core theme JS-->
+    <script type="module" src="./data/data.js"></script>
+    <script type="module" src="./router/index.js"></script>
+
+    <template id="home_template">
+      <section class="pt-4">
+        <div class="container-fluid px-lg-5">
+          <!-- Page Features-->
+          <div class="row row-cols-4">
+            <div v-for="lesson in lessons">
+              <div class="col">
+                <div class="card bg-light border-0 h-100">
+                  <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                    <div
+                      class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
+                    ></div>
+                    <h2 class="fs-4 fw-bold">Lesson {{lesson.lessonNum}}</h2>
+                    <p class="mb-0">
+                      <router-link
+                        class="nav-link"
+                        :to="'/lesson/' + lesson.lessonNum"
+                        >Start</router-link
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="license_template">
+      <section class="pt-4">
+        <div class="container-fluid px-lg-5">
+          <p class="fs-4">
+            MIT License Copyright (c) [year] [fullname] Permission is hereby
+            granted, free of charge, to any person obtaining a copy of this
+            software and associated documentation files (the "Software"), to
+            deal in the Software without restriction, including without
+            limitation the rights to use, copy, modify, merge, publish,
+            distribute, sublicense, and/or sell copies of the Software, and to
+            permit persons to whom the Software is furnished to do so, subject
+            to the following conditions: The above copyright notice and this
+            permission notice shall be included in all copies or substantial
+            portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT
+            WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+            TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+            PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+            COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+            ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+            OR OTHER DEALINGS IN THE SOFTWARE.
+          </p>
+        </div>
+      </section>
+    </template>
+
+    <template>
+      <h2>Buy the Books</h2>
+
+    </template>
+
+    <template id="lesson_template">
+      <section>
+        <!--h2>Lesson {{$route.params.lessonNum}}</h2-->
+        <h2>Lesson {{lessonNum}}</h2>
+        <span v-html="youtubeEmbed"></span>
+        <h3><router-link
+          class="nav-link"
+          :to="'/quiz/' + lessonNum"
+          >Take Quiz</router-link
+        ></h3>
+      </section>
+    </template>
+
+    <template id="quiz">
+      <h2>Comming Soon {{lessonNum}}</h2>
+    </template>
+
+    <template id="buyTheBook">
+      <h2>To purchase books by: Charles Harrington Elster (Author)</h2>
+      <a
+                href="https://www.amazon.com/Verbal-Advantage-Steps-Powerful-Vocabulary/dp/0375709320"
+                >To Purchase the book.</a
+              >
+      
+    </template>
+
+  </body>
+</html>
